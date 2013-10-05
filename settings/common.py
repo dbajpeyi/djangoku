@@ -107,8 +107,20 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    "django.core.context_processors.debug",
+    "django.core.context_processors.request",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    'account.context_processors.account',
+    'profile.context_processors.past_savings',
 )
 
 ROOT_URLCONF = 'settings.urls'
@@ -117,9 +129,7 @@ ROOT_URLCONF = 'settings.urls'
 WSGI_APPLICATION = 'settings.wsgi.application'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+        os.path.join(PROJECT_ROOT, 'templates')
 )
 
 INSTALLED_APPS = (
