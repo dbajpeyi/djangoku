@@ -119,8 +119,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
-    'account.context_processors.account',
-    'profile.context_processors.past_savings',
 )
 
 ROOT_URLCONF = 'settings.urls'
