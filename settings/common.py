@@ -87,8 +87,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    'compressor.finder.CompressorFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -137,9 +136,9 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'django.contrib.admin',
-     'south',
-     'compressor',
+    'django.contrib.admin',
+    'compressor',
+    'south',
     #my apps
      'app',
 )
@@ -147,10 +146,10 @@ INSTALLED_APPS = (
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 
 COMPRESS_ENABLED = True
-COMPRESS_ROOT = os.path.join(PROJECT_ROOT, 'static')
+COMPRESS_ROOT = os.path.join(PROJECT_ROOT, 'static',)
 COMPRESS_CSS_FILTERS = (
-        'compressor.filters.css_defaultCssAbsoluteFilter',
-        'compressor.filters.css_min.CSSMinFilter',
+        'compressor.filters.css_default.CssAbsoluteFilter',
+        'compressor.filters.cssmin.CSSMinFilter',
     )
 
 # A sample logging configuration. The only tangible logging
